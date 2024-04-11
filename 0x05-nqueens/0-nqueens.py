@@ -26,7 +26,7 @@ def is_safe(q, x, array):
         return (False)
     else:
         return all(abs(array[column] - x) != q - column
-                   for column in range(q))
+                for column in range(q))
 
 
 def init():

@@ -1,0 +1,21 @@
+{
+    "name": "0x06-starwars_api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "0-starwars_characters.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node 0-starwars_characters.js 3",
+      "dev": "nodemon 0-starwars_characters.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "10": "^0.0.1",
+      "nodeman": "^1.1.2",
+      "npm": "^10.5.2",
+      "request": "^2.88.2",
+      "semistandard": "^17.0.0"
+    }
+  }

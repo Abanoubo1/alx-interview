@@ -1,8 +1,6 @@
-# Star Wars API
-
+Star Wars API
 This project contains interview coding challenges.
 
-```bash
 touch 0-starwars_characters.js
 chmod +x 0-starwars_characters.js
 

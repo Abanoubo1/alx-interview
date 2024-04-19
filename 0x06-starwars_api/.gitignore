@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+node_modules
+coverage
+.idea
+npm-debug.log
+package-lock.json
+.nyc_output
+=======
+node_modules/
+>>>>>>> 0b21b745e3cd03d028ab42eb54c86b9103ab8e21

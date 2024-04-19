@@ -1,31 +1,20 @@
-const request = require('request');
+#!/usr/bin/node
+const util = require('util');
+const request = util.promisify(require('request'));
+const filmID = process.argv[2];
 
-const movieId = process.argv[2];
-const movieEndpoint = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
+async function starwarsCharacters (filmId) {
+  const endpoint = 'https://swapi-api.hbtn.io/api/films/' + filmId;
+  let response = await (await request(endpoint)).body;
+  response = JSON.parse(response);
+  const characters = response.characters;
 
-function sendRequest(characterList, index) {
-  if (characterList.length === index) {
-    return;
+  for (let i = 0; i < characters.length; i++) {
+    const urlCharacter = characters[i];
+    let character = await (await request(urlCharacter)).body;
+    character = JSON.parse(character);
+    console.log(character.name);
   }
-
-  request(characterList[index], (error, response, body) => {
-    if (error) {
-      console.log(error);
-    } else {
-      const characterData = JSON.parse(body);
-      console.log(characterData.name);
-    }
-    sendRequest(characterList, index + 1);
-  });
 }
 
-request(movieEndpoint, (error, response, body) => {
-  if (error) {
-    console.log(error);
-  } else {
-    const data = JSON.parse(body);
-    const characterList = data.characters;
-
-    sendRequest(characterList, 0);
-  }
-});
+starwarsCharacters(filmID);
